@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshan Kumar - Portfolio</title>
+    <!-- Google Fonts for a professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General body and font styling */
+        :root {
+            --primary-bg-color: #ffffff;
+            --secondary-bg-color: #e2e8f0;
+            --primary-text-color: #0f172a;
+            --secondary-text-color: #475569;
+            --accent-color: #1a53c5;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg-color);
+            color: var(--primary-text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header and navigation styling */
+        .header {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--secondary-bg-color);
+        }
+        
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+            text-decoration: none;
+        }
+        
+        /* Hero section styling */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin: 0;
+            color: var(--primary-text-color);
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--secondary-text-color);
+            max-width: 600px;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .section p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--secondary-text-color);
+        }
+
+        /* Skills section styling */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-item {
+            background-color: var(--secondary-bg-color);
+            color: var(--primary-text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: var(--card-shadow);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+        }
+
+        /* Certifications section styling */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .certification-card {
+            background-color: var(--secondary-bg-color);
+            border-radius: 0.75rem;
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .certification-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--primary-text-color);
+        }
+
+        .certification-card p {
+            margin-bottom: 1rem;
+            color: var(--secondary-text-color);
+            text-align: center;
+        }
+        
+        .certification-card a {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .certification-card a:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Projects section styling */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--secondary-bg-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--primary-bg-color);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-content h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--primary-text-color);
+        }
+
+        .project-content p {
+            color: var(--secondary-text-color);
+            text-align: left;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .project-link:hover {
+            background-color: #2563eb;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: var(--secondary-bg-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--primary-text-color);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer p {
+            margin: 0;
+            color: var(--secondary-text-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="header">
+        <a href="#" class="logo">Roshan Kumar</a>
+    </header>
+
+    <main>
+        <!-- Hero Section: The main introduction to the portfolio -->
+        <section class="hero container">
+            <div class="hero-content">
+                
+                <h1>Hello, I'm <span>Roshan Kumar</span></h1>
+                <p>"AI Engineer passionate about building intelligent systems using machine learning, deep learning, and data-driven solutions to solve real-world problems and drive innovation."</p>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <p>This is where you can write a more detailed description of yourself, your journey, and your professional goals. Talk about your passion for technology, problem-solving, and continuous learning. Make it personal and engaging to potential employers.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <ul class="skills-list">
+                    <li class="skill-item">Python</li>
+                    <li class="skill-item">Problem Solving</li>
+                    <li class="skill-item">Artificial Intelligence</li>
+                    <li class="skill-item">PowerBI</li>
+                    <li class="skill-item">Data Visualization</li>
+                    <li class="skill-item">AWS</li>
+                    <li class="skill-item">Git</li>
+                    <li class="skill-item">Machine learning</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications-grid">
+                    <!-- Certification Card 1 -->
+                    <div class="certification-card">
+                        <h3>Deloitte Data Analytics</Data></h3>
+                        <p>Issued by Credible Institution</p>
+                        <a href="Deloitte Data Analytics Certificate.pdf" class="credential-link">View Credential</a>
+                    </div>
+                    
+                    <!-- Certification Card 2 -->
+                    <div class="certification-card">
+                        <h3>IBM's Machine learning</h3>
+                        <p>Issued by Credible Institution</p>
+                        <a href="IBM ML Certificate _ Cognitive Class.pdf" class="credential-link">View Credential</a>
+                    </div>
+
+                    <!-- Certification Card 3 -->
+                    <div class="certification-card">
+                        <h3>IBM's Data Visualization</h3>
+                        <p>Issued by Credible Institution</p>
+                        <a href="IBM DV Certificate _ Cognitive Class.pdf" class="credential-link">View Credential</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/e2e8f0/0f172a?text=Project+1" alt="Project 1">
+                        <div class="project-content">
+                            <h3>Project Title One</h3>
+                            <p>A brief description of your project. Explain the technologies used, the problem it solves, and your specific contribution to the project.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/e2e8f0/0f172a?text=Project+2" alt="Project 2">
+                        <div class="project-content">
+                            <h3>Project Title Two</h3>
+                            <p>A brief description of your project. Explain the technologies used, the problem it solves, and your specific contribution to the project.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/e2e8f0/0f172a?text=Project+3" alt="Project 3">
+                        <div class="project-content">
+                            <h3>Project Title Three</h3>
+                            <p>A brief description of your project. Explain the technologies used, the problem it solves, and your specific contribution to the project.</p>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="social-links">
+            <li><a href="https://github.com/roshankumar-18" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/roshan-kumar-srk18" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="mailto:roshansiva1817@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <p>&copy; 2025 Roshan Kumar. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
